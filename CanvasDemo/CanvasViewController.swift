@@ -46,12 +46,12 @@ class CanvasViewController: UIViewController {
             let velocity = sender.velocity(in: view)
             if (velocity.y > 0){
                 UIView.animate(withDuration: 0.6, animations: { () -> Void in
-                    self.trayView.center = self.trayDown!
+                    self.trayView.center = self.trayDown
                 })
             }
             else{
                 UIView.animate(withDuration: 0.6, animations: { () -> Void in
-                    self.trayView.center = self.trayUp!
+                    self.trayView.center = self.trayUp
                 })
             }
             print("Gesture ended")
@@ -65,6 +65,11 @@ class CanvasViewController: UIViewController {
         if sender.state == .began {
             let imageView = sender.view as! UIImageView
             newlyCreatedFace = UIImageView(image: imageView.image)
+            let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+            newlyCreatedFace.isUserInteractionEnabled = true
+           
+            newlyCreatedFace.isUserInteractionEnabled = true
+            newlyCreatedFace.addGestureRecognizer(panGestureRecognizer)
             view.addSubview(newlyCreatedFace)
             newlyCreatedFace.center = imageView.center
             newlyCreatedFace.center.y += trayView.frame.origin.y
@@ -80,6 +85,20 @@ class CanvasViewController: UIViewController {
         }
     }
     
+    @objc func handlePanGesture(_ gesture: UIPanGestureRecognizer){
+        let translation = gesture.translation(in: view)
+        
+        if gesture.state == .began {
+            newlyCreatedFace = gesture.view as? UIImageView
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+        }
+        else if gesture.state == .changed {
+            newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
+        }
+        else if gesture.state == .ended{
+            
+        }
+    }
     
     
 }
