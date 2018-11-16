@@ -14,6 +14,7 @@
 		5B5DF0DF219E41FF009CB2B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5B5DF0DD219E41FF009CB2B6 /* LaunchScreen.storyboard */; };
 		5B5DF0EA219E41FF009CB2B6 /* CanvasDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5DF0E9219E41FF009CB2B6 /* CanvasDemoTests.swift */; };
 		5B5DF0F5219E41FF009CB2B6 /* CanvasDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5DF0F4219E41FF009CB2B6 /* CanvasDemoUITests.swift */; };
+		5B5DF103219E434A009CB2B6 /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5DF102219E434A009CB2B6 /* CanvasViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		5B5DF0F0219E41FF009CB2B6 /* CanvasDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CanvasDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B5DF0F4219E41FF009CB2B6 /* CanvasDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasDemoUITests.swift; sourceTree = "<group>"; };
 		5B5DF0F6219E41FF009CB2B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5B5DF102219E434A009CB2B6 /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				5B5DF0DB219E41FF009CB2B6 /* Assets.xcassets */,
 				5B5DF0DD219E41FF009CB2B6 /* LaunchScreen.storyboard */,
 				5B5DF0E0219E41FF009CB2B6 /* Info.plist */,
+				5B5DF102219E434A009CB2B6 /* CanvasViewController.swift */,
 			);
 			path = CanvasDemo;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B5DF0D7219E41FD009CB2B6 /* ViewController.swift in Sources */,
+				5B5DF103219E434A009CB2B6 /* CanvasViewController.swift in Sources */,
 				5B5DF0D5219E41FD009CB2B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
