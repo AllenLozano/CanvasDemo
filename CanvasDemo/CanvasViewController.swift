@@ -15,6 +15,8 @@ class CanvasViewController: UIViewController {
     var trayDownOffset: CGFloat!
     var trayUp: CGPoint!
     var trayDown: CGPoint!
+    var newlyCreatedFace: UIImageView!
+    var newlyCreatedFaceOriginalCenter: CGPoint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +41,7 @@ class CanvasViewController: UIViewController {
             print("Gesture began")
         } else if sender.state == .changed {
             trayView.center = CGPoint(x: trayOriginalCenter.x, y: trayOriginalCenter.y + translation.y)
-            print("Gesture is changing")
+            print("Gesture is changing")  //trayOriginalCenter.x
         } else if sender.state == .ended {
             let velocity = sender.velocity(in: view)
             if (velocity.y > 0){
@@ -55,5 +57,29 @@ class CanvasViewController: UIViewController {
             print("Gesture ended")
         }
     }
+    
+    @IBAction func didPanFace(_ sender: UIPanGestureRecognizer) {
+        
+        let translation = sender.translation(in: view)
+        
+        if sender.state == .began {
+            let imageView = sender.view as! UIImageView
+            newlyCreatedFace = UIImageView(image: imageView.image)
+            view.addSubview(newlyCreatedFace)
+            newlyCreatedFace.center = imageView.center
+            newlyCreatedFace.center.y += trayView.frame.origin.y
+            newlyCreatedFaceOriginalCenter = newlyCreatedFace.center
+            
+            print("Gesture began")
+        } else if sender.state == .changed {
+            newlyCreatedFace.center = CGPoint(x: newlyCreatedFaceOriginalCenter.x + translation.x, y: newlyCreatedFaceOriginalCenter.y + translation.y)
+            print("Gesture is changing")
+        } else if sender.state == .ended {
+            
+          
+        }
+    }
+    
+    
     
 }
